@@ -1,6 +1,6 @@
 {
   "name": "@pipecat/angular-icon",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Angular.io component for displaying inline SVG.",
   "main": "src/angular-icon.ts",
   "engines": {
@@ -14,11 +14,9 @@
     "package": "node tools/setup-package.js",
     "prebuild": "npm run clean",
     "build": "npm run bundle && npm run files && npm run package",
-    "postbuild": "git add -A lib && git commit -m \"New build\" -- lib",
-    "prepublishOnly": "npm version patch && npm run package",
     "link": "cd ./lib && npm link",
-    "publish": "cd ./lib && npm test && npm publish --access public",
-    "postpublish": "git add -A lib && git commit --amend --no-edit && git push && git push --tags"
+    "publish": "cd ./lib && npm publish --access public",
+    "push": "git push && git push --tags"
   },
   "repository": {
     "type": "git",

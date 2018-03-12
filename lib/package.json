@@ -36,5 +36,5 @@
     "url": "git+https://github.com/thepipecat/angular-icon.git"
   },
   "types": "angular-icon.d.ts",
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
