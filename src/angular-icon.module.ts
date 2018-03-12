@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AngularIconComponent } from './angular-icon.component';
+import { AngularIconComponent, AngularIconComponentConfig, COMP_CONFIG } from './angular-icon.component';
 
 @NgModule({
   imports: [
@@ -18,14 +18,10 @@ import { AngularIconComponent } from './angular-icon.component';
   ]
 })
 export class AngularIconModule {
-  static forRoot(config: {
-    baseUrl?: string;
-  }): ModuleWithProviders {
-    if (config.baseUrl == null) {
-      config.baseUrl = '/';
+  static forRoot(config: AngularIconComponentConfig): ModuleWithProviders {
+    if (config.baseUrl != null) {
+      COMP_CONFIG.baseUrl = config.baseUrl;
     }
-
-    AngularIconComponent.baseUrl = config.baseUrl;
 
     return {
       ngModule: AngularIconModule

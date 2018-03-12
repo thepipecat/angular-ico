@@ -6,12 +6,10 @@
   "bugs": {
     "url": "https://github.com/thepipecat/angular-icon/issues"
   },
-  "contributors": [
-    {
-      "name": "Pedro Xudre",
-      "email": "xudre@me.com"
-    }
-  ],
+  "contributors": [{
+    "name": "Pedro Xudre",
+    "email": "xudre@me.com"
+  }],
   "description": "Angular.io component for displaying inline SVG.",
   "engines": {
     "node": ">=8.10.0",
@@ -36,5 +34,5 @@
     "url": "git+https://github.com/thepipecat/angular-icon.git"
   },
   "types": "angular-icon.d.ts",
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@pipecat/angular-icon",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Angular.io component for displaying inline SVG.",
   "main": "src/angular-icon.ts",
   "engines": {

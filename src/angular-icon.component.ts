@@ -1,14 +1,20 @@
 import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+export class AngularIconComponentConfig {
+  baseUrl?: string;
+}
+
+export let COMP_CONFIG: AngularIconComponentConfig = {
+  baseUrl: '/'
+};
+
 @Component({
   selector: 'ui-icon',
   template: '<!-- icon space -->',
   styleUrls: ['./angular-icon.component.scss']
 })
 export class AngularIconComponent implements OnInit {
-
-  public static baseUrl: string;
 
   @Input()
   public name: string;
@@ -27,7 +33,7 @@ export class AngularIconComponent implements OnInit {
 
   private Setup(): void {
     if (this.name != null) {
-      this.http.get(`${AngularIconComponent.baseUrl}/${this.name}.svg`, { responseType: 'text' })
+      this.http.get(`${COMP_CONFIG.baseUrl}/${this.name}.svg`, { responseType: 'text' })
         .subscribe(response => {
           let element: HTMLElement = this.el.nativeElement;
 
