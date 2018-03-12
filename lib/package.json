@@ -20,7 +20,9 @@
   "homepage": "https://github.com/thepipecat/angular-icon#readme",
   "keywords": [
     "angular",
-    "icon"
+    "icon",
+    "svg",
+    "aot"
   ],
   "license": "MIT",
   "main": "angular-icon.js",
