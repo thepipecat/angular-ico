@@ -1,13 +1,10 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+@Injectable()
 export class AngularIconComponentConfig {
-  baseUrl?: string;
+  baseUrl?: string = '/';
 }
-
-export let COMP_CONFIG: AngularIconComponentConfig = {
-  baseUrl: '/'
-};
 
 @Component({
   selector: 'ui-icon',
@@ -24,7 +21,8 @@ export class AngularIconComponent implements OnInit {
 
   constructor(
     private el: ElementRef,
-    private http: HttpClient
+    private http: HttpClient,
+    private cfg: AngularIconComponentConfig
   ) { }
 
   ngOnInit() {
@@ -33,24 +31,33 @@ export class AngularIconComponent implements OnInit {
 
   private Setup(): void {
     if (this.name != null) {
-      this.http.get(`${COMP_CONFIG.baseUrl}/${this.name}.svg`, { responseType: 'text' })
+      this.http.get(`${this.cfg.baseUrl}/${this.name}.svg`, { responseType: 'text' })
         .subscribe(response => {
-          let element: HTMLElement = this.el.nativeElement;
+          try {
+            let element: HTMLElement = this.el.nativeElement;
 
-          element.setAttribute('aria-hidden', 'true');
+            element.setAttribute('aria-hidden', 'true');
 
-          if (this.autosize) {
-            let tempElement: HTMLElement = document.createElement('div');
-            tempElement.innerHTML = response;
-            tempElement.firstElementChild.setAttribute('width', '100%');
-            tempElement.firstElementChild.setAttribute('height', '100%');
-            element.innerHTML = tempElement.firstElementChild.outerHTML;
+            if (this.autosize) {
+              let tempElement: HTMLElement = document.createElement('div');
+
+              tempElement.innerHTML = response;
+
+              let first: Element | null = tempElement.firstElementChild;
+
+              if (first != null) {
+                first.setAttribute('width', '100%');
+                first.setAttribute('height', '100%');
+
+                element.innerHTML = first.outerHTML;
+              }
+            }
+            else {
+              element.innerHTML = response;
+            }
+          } catch (ex) {
+            console.warn(ex);
           }
-          else {
-            element.innerHTML = response;
-          }
-
-
         }, error => {
           console.warn('Icon', error);
         });
