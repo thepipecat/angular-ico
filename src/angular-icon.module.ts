@@ -1,7 +1,8 @@
-import { NgModule, ModuleWithProviders, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, ModuleWithProviders, CUSTOM_ELEMENTS_SCHEMA, InjectionToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AngularIconComponent, AngularIconComponentConfig } from './angular-icon.component';
+import { AngularIconComponent } from './angular-icon.component';
+import { AngularIconComponentConfig, ICON_CONFIGURATION } from './angular-icon.config';
 
 @NgModule({
   imports: [
@@ -18,13 +19,13 @@ import { AngularIconComponent, AngularIconComponentConfig } from './angular-icon
   ]
 })
 export class AngularIconModule {
-  static forRoot(config: AngularIconComponentConfig): ModuleWithProviders {
+  static forRoot(config?: AngularIconComponentConfig): ModuleWithProviders {
     return {
       ngModule: AngularIconModule,
       providers: [
         {
-          provide: AngularIconComponentConfig,
-          useExisting: config
+          provide: ICON_CONFIGURATION,
+          useValue: config ? config : { baseUrl: '' }
         }
       ]
     };

@@ -1,5 +1,5 @@
 import { ModuleWithProviders } from '@angular/core';
-import { AngularIconComponentConfig } from './angular-icon.component';
+import { AngularIconComponentConfig } from './angular-icon.config';
 export declare class AngularIconModule {
-    static forRoot(config: AngularIconComponentConfig): ModuleWithProviders;
+    static forRoot(config?: AngularIconComponentConfig): ModuleWithProviders;
 }

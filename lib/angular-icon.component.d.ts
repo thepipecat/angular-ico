@@ -1,8 +1,6 @@
 import { OnInit, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-export declare class AngularIconComponentConfig {
-    baseUrl?: string;
-}
+import { AngularIconComponentConfig } from './angular-icon.config';
 export declare class AngularIconComponent implements OnInit {
     private el;
     private http;

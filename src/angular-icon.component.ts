@@ -1,10 +1,6 @@
-import { Component, OnInit, ElementRef, Input, Injectable } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-@Injectable()
-export class AngularIconComponentConfig {
-  baseUrl?: string = '/';
-}
+import { ICON_CONFIGURATION, AngularIconComponentConfig } from './angular-icon.config';
 
 @Component({
   selector: 'ui-icon',
@@ -22,7 +18,7 @@ export class AngularIconComponent implements OnInit {
   constructor(
     private el: ElementRef,
     private http: HttpClient,
-    private cfg: AngularIconComponentConfig
+    @Inject(ICON_CONFIGURATION) private cfg: AngularIconComponentConfig
   ) { }
 
   ngOnInit() {
