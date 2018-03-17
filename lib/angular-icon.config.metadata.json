@@ -1,1 +1,0 @@
-[{"__symbolic":"module","version":4,"metadata":{"AngularIconComponentConfig":{"__symbolic":"interface"},"ICON_CONFIGURATION":{"__symbolic":"new","expression":{"__symbolic":"reference","module":"@angular/core","name":"InjectionToken","line":6,"character":38},"arguments":["ICON_CONFIGURATION"]}}}]

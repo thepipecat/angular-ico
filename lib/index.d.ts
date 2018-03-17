@@ -1,3 +1,3 @@
-export * from './angular-icon.config';
-export * from './angular-icon.module';
-export * from './angular-icon.component';
+export * from './angular-ico.config';
+export * from './angular-ico.module';
+export * from './angular-ico.component';

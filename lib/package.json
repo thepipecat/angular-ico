@@ -1,11 +1,12 @@
 {
-  "name": "@pipecat/angular-icon",
-  "version": "0.1.7",
-  "description": "Angular.io component for displaying inline SVG.",
+  "name": "angular-ico",
+  "version": "0.1.0",
+  "description": "Angular component for displaying inline SVG.",
   "main": "index.umd.min.js",
   "module": "index.js",
   "keywords": [
     "angular",
+    "ico",
     "icon",
     "svg",
     "aot"
@@ -23,11 +24,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thepipecat/angular-icon.git"
+    "url": "git+https://github.com/thepipecat/angular-ico.git"
   },
-  "homepage": "https://github.com/thepipecat/angular-icon#readme",
+  "homepage": "https://github.com/thepipecat/angular-ico#readme",
   "bugs": {
-    "url": "https://github.com/thepipecat/angular-icon/issues"
+    "url": "https://github.com/thepipecat/angular-ico/issues"
   },
   "peerDependencies": {
     "@angular/common": "^5.2.7",
