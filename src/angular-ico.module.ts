@@ -1,30 +1,30 @@
 import { NgModule, ModuleWithProviders, CUSTOM_ELEMENTS_SCHEMA, InjectionToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AngularIconComponent } from './angular-icon.component';
-import { AngularIconComponentConfig, ICON_CONFIGURATION } from './angular-icon.config';
+import { AngularIcoComponent } from './angular-ico.component';
+import { AngularIcoComponentConfig, ICO_CONFIGURATION } from './angular-ico.config';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    AngularIconComponent
+    AngularIcoComponent
   ],
   exports: [
-    AngularIconComponent
+    AngularIcoComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ]
 })
-export class AngularIconModule {
-  static forRoot(config?: AngularIconComponentConfig): ModuleWithProviders {
+export class AngularIcoModule {
+  static forRoot(config?: AngularIcoComponentConfig): ModuleWithProviders {
     return {
-      ngModule: AngularIconModule,
+      ngModule: AngularIcoModule,
       providers: [
         {
-          provide: ICON_CONFIGURATION,
+          provide: ICO_CONFIGURATION,
           useValue: config ? config : { baseUrl: '' }
         }
       ]

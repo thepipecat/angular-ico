@@ -6,7 +6,6 @@ const fs = require('fs');
 const cp = require('copyfiles');
 
 const libPath = 'lib';
-const libName = 'angular-icon';
 
 let mainPackage = JSON.parse(fs.readFileSync('package.json').toString());
 

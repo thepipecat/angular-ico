@@ -1,13 +1,13 @@
 import { Component, OnInit, ElementRef, Input, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ICON_CONFIGURATION, AngularIconComponentConfig } from './angular-icon.config';
+import { ICO_CONFIGURATION, AngularIcoComponentConfig } from './angular-ico.config';
 
 @Component({
   selector: 'ui-icon',
   template: '<!-- icon space -->',
-  styleUrls: ['./angular-icon.component.scss']
+  styleUrls: ['./angular-ico.component.scss']
 })
-export class AngularIconComponent implements OnInit {
+export class AngularIcoComponent implements OnInit {
 
   @Input()
   public name: string;
@@ -18,7 +18,7 @@ export class AngularIconComponent implements OnInit {
   constructor(
     private el: ElementRef,
     private http: HttpClient,
-    @Inject(ICON_CONFIGURATION) private cfg: AngularIconComponentConfig
+    @Inject(ICO_CONFIGURATION) private cfg: AngularIcoComponentConfig
   ) { }
 
   ngOnInit() {
