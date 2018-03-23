@@ -27,38 +27,57 @@ export class AngularIcoComponent implements OnInit {
 
   private Setup(): void {
     if (this.name != null) {
-      this.http.get(`${this.cfg.baseUrl}/${this.name}.svg`, { responseType: 'text' })
-        .subscribe(response => {
-          try {
-            let element: HTMLElement = this.el.nativeElement;
+      let key: string = `ui-icon-${this.name}`;
+      let content: string | null = null;
 
-            element.setAttribute('aria-hidden', 'true');
+      if (this.cfg.cache) {
+        content = window.sessionStorage.getItem(key);
+      }
 
-            if (this.autosize) {
-              let tempElement: HTMLElement = document.createElement('div');
-
-              tempElement.innerHTML = response;
-
-              let first: Element | null = tempElement.firstElementChild;
-
-              if (first != null) {
-                first.setAttribute('width', '100%');
-                first.setAttribute('height', '100%');
-
-                element.innerHTML = first.outerHTML;
-              }
+      if (content === null) {
+        this.http.get(`${this.cfg.baseUrl}/${this.name}.svg`, { responseType: 'text' })
+          .subscribe(content => {
+            if (this.cfg.cache) {
+              window.sessionStorage.setItem(key, content);
             }
-            else {
-              element.innerHTML = response;
-            }
-          } catch (ex) {
-            console.warn(ex);
-          }
-        }, error => {
-          console.warn('Icon', error);
-        });
+
+            this.Transform(content);
+          }, error => {
+            console.warn('Icon', error);
+          });
+      } else {
+        this.Transform(content);
+      }
     } else {
       console.warn('Icon', 'Name is undefined.');
+    }
+  }
+
+  private Transform(content: string): void {
+    try {
+      let element: HTMLElement = this.el.nativeElement;
+
+      element.setAttribute('aria-hidden', 'true');
+
+      if (this.autosize) {
+        let tempElement: HTMLElement = document.createElement('div');
+
+        tempElement.innerHTML = content;
+
+        let first: Element | null = tempElement.firstElementChild;
+
+        if (first != null) {
+          first.setAttribute('width', '100%');
+          first.setAttribute('height', '100%');
+
+          element.innerHTML = first.outerHTML;
+        }
+      }
+      else {
+        element.innerHTML = content;
+      }
+    } catch (ex) {
+      console.warn(ex);
     }
   }
 

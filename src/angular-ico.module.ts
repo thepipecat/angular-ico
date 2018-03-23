@@ -25,7 +25,7 @@ export class AngularIcoModule {
       providers: [
         {
           provide: ICO_CONFIGURATION,
-          useValue: config ? config : { baseUrl: '' }
+          useValue: config ? config : { baseUrl: '', cache: true } as AngularIcoComponentConfig
         }
       ]
     };

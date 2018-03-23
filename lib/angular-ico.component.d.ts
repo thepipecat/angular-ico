@@ -10,4 +10,5 @@ export declare class AngularIcoComponent implements OnInit {
     constructor(el: ElementRef, http: HttpClient, cfg: AngularIcoComponentConfig);
     ngOnInit(): void;
     private Setup();
+    private Transform(content);
 }
