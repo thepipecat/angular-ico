@@ -1,7 +1,7 @@
 {
   "name": "angular-ico",
-  "version": "0.1.0",
-  "description": "Angular component for displaying inline SVG.",
+  "version": "0.1.1",
+  "description": "Angular.io component for displaying inline SVG.",
   "main": "index.umd.min.js",
   "module": "index.js",
   "keywords": [

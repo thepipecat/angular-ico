@@ -8,7 +8,7 @@ export default {
   output: {
     format: 'umd',
     file: 'lib/index.umd.js',
-    name: 'pipecat.AngularIcon',
+    name: 'AngularIco',
     sourcemap: true,
     globals: {
       '@angular/core': 'ng.core',

@@ -1,8 +1,10 @@
 # Angular.io SVG Icon
 
-Inline SVG.
+## Features
 
-Example:
+1. Request and inline SVG on the fly.
+
+## Usage
 
 `<ui-icon name="svg-file-name-without-extension" autosize></ui-icon>`
 
