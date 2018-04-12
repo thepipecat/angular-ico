@@ -1,11 +1,9 @@
 :host {
   display: inline-block;
   vertical-align: middle;
-  margin-top: -.2em;
 
-  svg {
+  /deep/ svg {
+    float: left;
     fill: currentColor;
-    width: 100%;
-    height: 100%;
   }
 }
