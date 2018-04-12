@@ -8,18 +8,11 @@ import { ICO_CONFIGURATION, AngularIcoComponentConfig } from './angular-ico.conf
   styleUrls: ['./angular-ico.component.scss']
 })
 export class AngularIcoComponent implements OnInit {
+  @Input() public name: string;
 
-  @Input()
-  public name: string;
+  @Input() public autosize: boolean = true;
 
-  @Input()
-  public autosize: boolean = true;
-
-  constructor(
-    private el: ElementRef,
-    private http: HttpClient,
-    @Inject(ICO_CONFIGURATION) private cfg: AngularIcoComponentConfig
-  ) { }
+  constructor(private el: ElementRef, private http: HttpClient, @Inject(ICO_CONFIGURATION) private cfg: AngularIcoComponentConfig) {}
 
   ngOnInit() {
     this.Setup();
@@ -35,16 +28,22 @@ export class AngularIcoComponent implements OnInit {
       }
 
       if (content === null) {
-        this.http.get(`${this.cfg.baseUrl}/${this.name}.svg`, { responseType: 'text' })
-          .subscribe(content => {
-            if (this.cfg.cache) {
-              window.sessionStorage.setItem(key, content);
-            }
+        this.http
+          .get(`${this.cfg.baseUrl}/${this.name}.svg`, {
+            responseType: 'text'
+          })
+          .subscribe(
+            content => {
+              if (this.cfg.cache) {
+                window.sessionStorage.setItem(key, content);
+              }
 
-            this.Transform(content);
-          }, error => {
-            console.warn('Icon', error);
-          });
+              this.Transform(content);
+            },
+            error => {
+              console.warn('Icon', error);
+            }
+          );
       } else {
         this.Transform(content);
       }
@@ -67,18 +66,15 @@ export class AngularIcoComponent implements OnInit {
         let first: Element | null = tempElement.firstElementChild;
 
         if (first != null) {
-          first.setAttribute('width', '100%');
-          first.setAttribute('height', '100%');
+          first.setAttribute('height', '1em');
 
           element.innerHTML = first.outerHTML;
         }
-      }
-      else {
+      } else {
         element.innerHTML = content;
       }
     } catch (ex) {
       console.warn(ex);
     }
   }
-
 }
