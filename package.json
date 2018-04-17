@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "angular-ico",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Angular.io component for displaying inline SVG.",
   "main": "src/index.ts",
   "engines": {

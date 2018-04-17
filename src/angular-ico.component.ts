@@ -9,8 +9,7 @@ import { ICO_CONFIGURATION, AngularIcoComponentConfig } from './angular-ico.conf
 })
 export class AngularIcoComponent implements OnInit {
   @Input() public name: string;
-
-  @Input() public autosize: boolean = true;
+  @Input() public autosize = true;
 
   constructor(private el: ElementRef, private http: HttpClient, @Inject(ICO_CONFIGURATION) private cfg: AngularIcoComponentConfig) {}
 
@@ -66,6 +65,7 @@ export class AngularIcoComponent implements OnInit {
         let first: Element | null = tempElement.firstElementChild;
 
         if (first != null) {
+          first.removeAttribute('width');
           first.setAttribute('height', '1em');
 
           element.innerHTML = first.outerHTML;
